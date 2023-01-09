@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  render,
-  screen,
-  fireEvent,
-  cleanup,
-  act,
-  waitFor,
-} from "@testing-library/react";
+import { render, screen, cleanup, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import LoginPage from "../pages/login";
 
@@ -69,8 +62,8 @@ describe("test the login form", () => {
     render(<LoginPage fetchLoginFallback={fetchSuccesLoginMock} />);
 
     //Act
-    await user.type(screen.getByLabelText(/email/i), "test@zyax.se");
-    await user.type(screen.getByLabelText(/password/i), "!zyaxSe981");
+    await user.type(screen.getByLabelText(/email/i), "test@test.com");
+    await user.type(screen.getByLabelText(/password/i), "12345678");
     await user.click(screen.getByRole("button", { name: /Sign in/i }));
 
     // Assert
